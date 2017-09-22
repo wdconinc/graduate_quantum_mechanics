@@ -1,0 +1,69 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 621 (Fall 2017) \\ Homework Assignment 3}
+\date{Due: Wednesday September 27, 2017}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Finite dimensional quantum systems: Applications}
+
+All of the following questions are Category C assignment questions; you are welcome to work with others but you should submit your own work.
+
+\begin{enumerate}
+  \item A box containing a particle is divided into a right and a left compartment by a thin partition. If the particle is known to be on the right side (left side) with certainty, the state is represented by the position eigenstate $|R\rangle$ ($|L\rangle$), where we have neglected spatial variations within each half of the box. The most general state vector $|\alpha\rangle$ can now be written in the basis $\{|R\rangle,|L\rangle\}$ using the scalar products $\langle R|\alpha\rangle$ and $\langle L|\alpha\rangle$ which can be regarded as ``wave functions''. The particle can tunnel through the partition; this tunneling effect is characterized by the Hamiltonian
+  $$ H = \Delta ( \langle L|R\rangle + \langle R|L\rangle ), $$
+  where $\Delta$ is a real number with the dimension of energy. (SAK 2.9 with modifications)
+  \begin{enumerate}
+    \item Find the normalized energy eigenstates and energy eigenvalues.
+    \item \label{partb} Find the state vector $|\alpha(t)\rangle$ if the initial state is $|\alpha_0\rangle$ by applying the appropriate time evolution operator.
+    \item Suppose that at $t = 0$ the particle is on the right side with certainty. What is the probability for observing the particle on the left side as a function of time.
+    \item Write down the coupled time evolution equations for the wave functions $\langle R|\alpha(t)\rangle$ and $\langle L|\alpha(t)\rangle$. Show that the solutions are just what you would expected from part \ref{partb}.
+    \item Suppose the printer made an error and wrote the Hamiltonian as
+    $$ H = \Delta \langle L|R\rangle. $$
+    What is wrong with this? By explicitly solving the time evolution with this Hamiltonian, show that the probability conservation is violated.
+  \end{enumerate}
+  \item Amplified spontaneous emission and the ammonia maser (LB 5.3, 5.5.4, with modifications).\footnote{To make this assignment self-consistent there will be some repetition of material covered in class.}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=0.25\textwidth]{images/Ammonia-dimensions-2D}
+    \end{center}
+    \caption{By Ben Mills - Own work, Public Domain, \url{https://commons.wikimedia.org/w/index.php?curid=6628922}}
+    \label{fig:ammonia}
+  \end{figure}
+  We aim with our discussion to develop a treatment of the ammonia molecule (NH$_3$, see figure \ref{fig:ammonia}) with an electric dipole moment $\vec{d} = \mp d \hat{z}$ in an oscillating electric field $\vec{\mathcal{E}} = \mathcal{E}_0 \cos\omega t \hat{z}$.
+  \begin{enumerate}
+    \item In the absence of an electric field, $\mathcal{E} = 0$, we will work in the basis $\{|\phi_+\rangle, |\phi_-\rangle\}$ with $|\phi_+\rangle$ the state corresponding with the more electronegative nitrogen \emph{above} the $\hat{x}\hat{y}$ plane of positive hydrogen atoms, \textit{i.e.} with the electric dipole moment in the $-\hat{z}$ direction. Write the Hamiltonian in this basis using the parameters $E_0 > 0$ and $A > 0$. Solve for the eigenvalues and determine the corresponding eigenstates (symmetric $|\chi_+\rangle$ and antisymmetric $|\chi_-\rangle$) of this system in the basis $\{|\phi_+\rangle, |\phi_-\rangle\}$.
+    \item In this case the value for the off-diagonal coupling energy is $2 A \approx 10^{-4}$\,eV, to be compared with $2 A \approx 1$\,eV for $\pi$ electrons in ethylene and benzene in H\"uckel's theory of molecular orbitals. Electron excitation energies are on the order of several eV, vibrational energies $\approx 0.1$\,eV, rotational energies $\approx 10^{-3}$\,eV. At room temperature, explain which excitations will be relevant. How will an initial population distribution look for the two eigenstates of the system (\textit{i.e.} different populations or very similar populations)?
+    \item We now apply a constant electric field $\mathcal{E} = \mathcal{E}_0$. Write the Hamiltonian in the basis $\{|\phi_+\rangle, |\phi_-\rangle\}$. Remember that the choice of $|\phi_+\rangle$ corresponds with a higher energy $H_1 = -\vec{d} \cdot \vec{\mathcal{E}}$. Solve for the eigenvalues. Determine the limits of the eigenvalues in the large $d\mathcal{E} \gg A$ regime and in the small $d\mathcal{E} \ll A$ regime. Plot these energy levels versus $d\mathcal{E}$, and overlay the limiting expression to indicate agreement. Determine the eigenvectors in the small $d\mathcal{E} \ll A$ regime to first order in $d\mathcal{E} / A$.
+    \item Next we apply an oscillating electric field $\mathcal{E} = \mathcal{E}_0 \cos \omega t = \frac{1}{2} \mathcal{E}_0 (e^{i\omega t} + e^{-i\omega t})$. Write the Hamiltonian in the \emph{different} basis $\{|\chi_+\rangle, |\chi_-\rangle\}$ of molecular energy levels. Write the differential equations describing the time-evolution of the coefficients in $|\psi(t)\rangle = c_+(t) |\chi_+\rangle + c_-(t) |\chi_-\rangle$. Solve the differential equations for $\mathcal{E}_0 = 0$ by introducing $\omega_\pm = (E \mp A)/\hbar$.
+    \item Introduce a transformation from $c_\pm(t)$ to $\gamma_\pm(t)$ as follows:\footnote{This entire discussion is similar to the derivation of the NMR system. This step corresponds to setting $B_1 = 0$ and transforming into a coordinate system rotating at the Larmor frequency with $\omega_0$.}
+    $$ c_\pm(t) = \gamma_\pm(t) e^{-\omega_\pm t}, $$
+    and determine the differential equations for $\gamma_\pm(t)$ by introducing $\omega_0 = 2 A/\hbar$. Don't try to solve this system; it does not have an analytical solution.\footnote{In contrast to the NMR discussion with a rotating $\vec{B}_1$ we are using a linear $\vec{\mathcal{E}}$ here. A linear $\vec{B}_1$ would have given us grief in the NMR discussion as well.}
+    \item To solve the differential equations in $\gamma_\pm(t)$ we use the \emph{rotating wave approximation} under the following (realistic) assumptions:
+    \begin{itemize}
+      \item The electric field can be treated as a perturbation, $d \mathcal{E}_0 \ll A$ or the Rabi frequency $\omega_1 = d \mathcal{E}_0/\hbar \ll \omega_0$.
+      \item The electric field is close to resonance, $\delta = \omega - \omega_0 \approx 0$.
+    \end{itemize}
+    Show that the differential equations simplify to
+    $$ i \frac{d}{dt} \gamma_\pm(t) = \frac{\omega_1}{2} e^{\pm i\delta t} \gamma_\mp(t), $$
+    which is easily solved when exactly on resonance.
+    \item Starting with an inverted population prepared in the state $|\chi_-\rangle$ (through a Stern-Gerlach like selection mechanism with an electric field gradient), determine the probabilities $P[+]$ and $P[-]$ for finding either $|\chi_+\rangle$ or $|\chi_-\rangle$ at time $t$ when exactly on resonance. What are the conditions for a $\pi$ pulse that results in a probability of 1 for finding $|\chi_+\rangle$? This treatment could be extended to a general off resonance system, which would give us
+    \item The transition from $|\chi_-\rangle$ to $|\chi_+\rangle$ must add energy to the electric field. What frequency will the emitted photons have? This is called \emph{stimulated emission} since the presence of the field $\mathcal{E}$, under $\pi$ pulse conditions, causes the system to emit more energy. If the system had been prepared in the $|\chi_+\rangle$ state, we would have obtained \emph{stimulated absorption}.\footnote{This last part is entirely a heuristic argument, since we would need to consider a full quantum treatment of the electric field to give meaning to the concept of `photons'.}
+    \item Congratulations, you have built yourself a \emph{maser}, microwave amplifcation through stimulated emission of radiation. Discuss what you think are some of the challenges involved with applying this approach to optical light  in order to build a \emph{laser}?
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,71 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 621 (Fall 2017) \\ Homework Assignment 2}
+\date{Due: Wednesday September 20, 2017}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Finite dimensional quantum systems}
+
+All of the following questions are Category C assignment questions; you are welcome to work with others but you should submit your own work.
+
+\begin{enumerate}
+  \item Compute the dispersion
+  $$ \left( \Delta_\phi S_x \right)^2 = \langle S_x^2 \rangle_\phi - \left(\langle A \rangle_\phi\right)^2, $$
+  where the expectation value is taken for the $|\phi\rangle = |S_z,+\rangle$ state. Using your result, check the Heisenberg inequality
+  $$ \left( \Delta_\phi A \right) \left( \Delta_\phi B \right) \ge \frac{1}{4} \left| \langle \left[ A,B \right] \rangle \right|^2, $$
+  with $A = S_x$ and $B = S_y$. Repeat this for the $|\phi\rangle = |S_x,+\rangle$ state. (SAK 1.19)
+  \item The variational method in quantum mechanics for finite dimensional systems. (LB 4.4.2)
+  \begin{enumerate}
+    \item Let $|\phi\rangle$ be a vector (not normalized) in the Hilbert space of states and $H$ be a Hamiltonian. The expectation value $\langle H \rangle_{\phi}$ is
+    $$ \langle H \rangle_{\phi} = \frac{\langle \phi|H|\phi \rangle}{\langle \phi|\phi \rangle}. $$
+    Show that if the minimum of this expectation value is obtained for $|\phi\rangle = |\phi_m\rangle$ and the maximum for $|\phi\rangle = |\phi_M\rangle$, then
+    $$ H |\phi_m\rangle = E_m |\phi_m\rangle \quad \mbox{and} \quad H |\phi_M\rangle = E_M |\phi_M\rangle, $$
+    where $E_m$ and $E_M$ are the smallest and largest eigenvalues.
+    \item We assume that the vector $|\phi_m\rangle$ depends on a parameter $\alpha$: $|\phi\rangle = |\phi(\alpha)\rangle$. Show that if
+    $$ \left. \frac{\partial \langle H \rangle_{\phi(\alpha)}}{\partial \alpha} \right|_{\alpha = \alpha_0} = 0, $$
+    then $E_m \le \langle H \rangle_{\phi(\alpha_0)}$ if $\alpha_0$ corresponds to a minimum of $\langle H \rangle_{\phi(\alpha)}$, and $\langle H \rangle_{\phi(\alpha_0)} \le E_M$ if $\alpha_0$ corresponds to a maximum.
+    \item \label{prob:varmethod:2dsystem}
+    If $H$ acts in a two-dimensional space, its most general form is
+    $$ H = \left( \begin{array}{cc} a+c & b \\ b & a-c \end{array} \right), $$
+    where $b$ can always chosen to be real. Parametrizing $|\phi(\alpha)\rangle$ as
+    $$ |\phi(\alpha)\rangle = \left( \begin{array}{c} \cos \alpha/2 \\ \sin\alpha/2 \end{array} \right), $$
+    find the values of $\alpha_0$ by seeking the extrema of $\langle \phi(\alpha)|H|\phi(\alpha) \rangle$.
+    \item Determine the exact eigenvalues and eigenvectors of the Hamiltonian in the previous part (defining $\tan \theta = b/c$). Compare with the results you found using the variational method.
+  \end{enumerate}
+  In numerical methods (for example Hartree-Fock) we can choose any parametrized state $|\phi(\alpha)\rangle$, even if is not possible to write the eigenstate $|\phi_m\rangle$ in this parametrization. We can still minimize or maximize the expectation value $\langle H \rangle_{\phi}$ and obtain information about the range of the eigenvalues of the system. In particular this approach can provide us with an upper bound on the ground state of a system.
+  \item We extend the description of $\pi$-bond electrons in the context of the linear ethylene molecule C$_2$H$_4$ to the hexagonal benzene molecule C$_6$H$_6$. Remember that we found that each $\pi$ electron in ethylene can occupy a position in the $E_0 - A$ energy level, for a total energy of $2(E_0 - A)$, thanks to the Pauli principle which allows them to share the same level (a hypothetical third electron would have been bumped to the $E_0 + A$ energy level).
+  (LB 5.1.2, with significant modifications)
+  \begin{enumerate}
+    \item The $\sigma$-bond skeleton of the $($C$_6$H$_6)^{6+}$ ion forms a hexagon ring. We could, naively and incorrectly, assume that benzene can be modeled as three ethylene molecules: on three sides of the benzene ring there is a double bond with each two $\pi$ electrons. What would the ground state energy of this system be?
+    \item In a more correct treatment each individual $\pi$ electron can be localized near any of the six carbon atoms, \emph{i.e.} our basis states $|\phi_i\rangle, i = 0,\ldots,5$. Determine the matrix representation of the Hamiltonian $H$ in this basis and calculate the eigenvalues and eigenvectors that the $\pi$ electron can be found in\footnote{Mathematica or similar recommended! Please print out any worksheets and append to your homework assignment.}. The eigenvectors represent the molecular orbitals, $\psi_m$ (MO) which are linear combinations of the atomic orbitals, $\phi_i$ (AO),
+    $$ \psi = \sum_i a_i \phi_i. $$
+    \item Of course, we have six $\pi$ electrons that can be measured in the eigenstates above. Taking into account the Pauli principle, what is the lowest energy state for the entire benzene molecule?
+  \end{enumerate}
+  \item The electric dipole moment of formaldehyde. (LB 5.5.2)
+  We wish to model the behavior of the two $\pi$ electrons of the double bond in the formaldehyde molecule H$_2$-C=O. Due to the fact that oxygen is more electronegative than carbon, the Hamiltonian of an electron takes the form
+  $$ H = \left( \begin{array}{cc} E_C & -A \\ -A & E_O \end{array} \right), $$
+  with $E_O < E_C$, where $E_C(E_O)$ the energy of an electron localized at the carbon (oxygen) atom.
+  \begin{enumerate}
+    \item Introduce the angle $\theta$ defined by
+    $$ \tan \theta = \frac{2A}{E_C - E_O}. $$
+    Calculate as a function of $\theta$ the probability of finding a $\pi$ electron localized at the carbon or oxygen atom\footnote{Use your work in problem \ref{prob:varmethod:2dsystem}.}.
+    \item We \emph{assume} that the electric dipole moment $d$ of formaldehyde is exclusively due to the charge distribution on the C=O axis. Express this dipole moment as a function of the distance $\ell$ between the carbon and oxygen atoms, the proton charge $+e$, and $\theta$.
+    \item Compare with the experimental values as found on the NIST Computation Chemistry Comparison and Benchmark Database (CCCBDB).
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
