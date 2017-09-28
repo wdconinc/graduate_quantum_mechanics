@@ -24,7 +24,7 @@ All of the following questions are Category C assignment questions; you are welc
 
 \begin{enumerate}
   \item A box containing a particle is divided into a right and a left compartment by a thin partition. If the particle is known to be on the right side (left side) with certainty, the state is represented by the position eigenstate $|R\rangle$ ($|L\rangle$), where we have neglected spatial variations within each half of the box. The most general state vector $|\alpha\rangle$ can now be written in the basis $\{|R\rangle,|L\rangle\}$ using the scalar products $\langle R|\alpha\rangle$ and $\langle L|\alpha\rangle$ which can be regarded as ``wave functions''. The particle can tunnel through the partition; this tunneling effect is characterized by the Hamiltonian
-  $$ H = \Delta ( \langle L|R\rangle + \langle R|L\rangle ), $$
+  $$ H = \Delta ( |R\rangle \langle L| + |L\rangle \langle R| ), $$
   where $\Delta$ is a real number with the dimension of energy. (SAK 2.9 with modifications)
   \begin{enumerate}
     \item Find the normalized energy eigenstates and energy eigenvalues.
@@ -32,7 +32,7 @@ All of the following questions are Category C assignment questions; you are welc
     \item Suppose that at $t = 0$ the particle is on the right side with certainty. What is the probability for observing the particle on the left side as a function of time.
     \item Write down the coupled time evolution equations for the wave functions $\langle R|\alpha(t)\rangle$ and $\langle L|\alpha(t)\rangle$. Show that the solutions are just what you would expected from part \ref{partb}.
     \item Suppose the printer made an error and wrote the Hamiltonian as
-    $$ H = \Delta \langle L|R\rangle. $$
+    $$ H = \Delta |R\rangle \langle L|. $$
     What is wrong with this? By explicitly solving the time evolution with this Hamiltonian, show that the probability conservation is violated.
   \end{enumerate}
   \item Amplified spontaneous emission and the ammonia maser (LB 5.3, 5.5.4, with modifications).\footnote{To make this assignment self-consistent there will be some repetition of material covered in class.}

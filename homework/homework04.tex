@@ -1,0 +1,86 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 621 (Fall 2017) \\ Homework Assignment 4}
+\date{Due: Wednesday October 4, 2017}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Tensor spaces}
+
+All of the following questions are Category C assignment questions; you are welcome to work with others but you should submit your own work.
+
+\begin{enumerate}
+  \item Fine structure and the Zeeman effect in positronium (LB 6.5.4)
+  Positronium is an electron-positron bound state very similar to the electron-proton bound state of the hydrogen atom.
+  \begin{enumerate}
+    \item Calculate the energy of the ground state of positronium as a function of that of the hydrogen atom ($-13.6$\,eV).
+    \item In this problem we are interested solely in the spin structure of the ground state of positronium. The space of states to be taken into account is then a four-dimensional space $\mathcal{H}$, the tensor product of the spaces of spin-$1/2$ states of the electron and the positron, respectively. Determine the action of the operators $\sigma_{1x}\sigma_{2x}$, $\sigma_{1y}\sigma_{2y}$, and $\sigma_{1z}\sigma_{2z}$ on the four basis states $|++\rangle$, $|+-\rangle$, $|-+\rangle$, $|--\rangle$ of $\mathcal{H}$. Deduce the action of the operator $\vec\sigma_1 \cdot \vec\sigma_2$ on these states.
+    \item Show that the four vectors
+    \begin{eqnarray*}
+      |1\rangle & = & |++\rangle \\
+      |2\rangle & = & \frac{1}{\sqrt{2}} ( |+-\rangle + |-+\rangle ) \\
+      |3\rangle & = & |--\rangle \\
+      |4\rangle & = & \frac{1}{\sqrt{2}} ( |+-\rangle - |-+\rangle ) \\
+    \end{eqnarray*}
+    form an orthonormal basis of $\mathcal{H}$ and that these vectors are eigenvectors of $\vec\sigma_1 \cdot \vec\sigma_2$ with eigenvalues 1 or $-3$.
+    \item Find the projectors $\mathcal{P}_1$ and $\mathcal{P}_{-3}$ onto the subspaces of the eigenvalues 1 and $-3$, writing these projectors in the form $\lambda I + \mu \vec\sigma_1 \cdot \vec\sigma_2$.
+    \item Show that the operator $\mathcal{P}_{12}$,
+    $$ \mathcal{P}_{12} = \frac{1}{2} (I + \vec\sigma_1 \cdot \vec\sigma_2), $$
+    exchanges the values of $\epsilon_1$ and $\epsilon_2$,
+    $$ \mathcal{P}_{12} | \epsilon_1 \epsilon_2 \rangle = | \epsilon_2 \epsilon_1 \rangle. $$
+    \item The Hamiltonian $H_0$ of the spin system in the absence of an external field is given by
+    $$ H_0 = E_0 I + A \vec\sigma_1 \cdot \vec\sigma_2, \quad A > 0, $$
+    where $E_0$ and $A$ are constants. Find the eigenvectors and eigenvalues of $H_0$.
+    \item The positronium is placed in a uniform, constant magnetic field $\vec{B}$ parallel to $\hat{z}$. Show that the Hamiltonian becomes
+    $$ H = H_0 - \frac{e\hbar}{2m} B (\sigma_{1z} - \sigma_{2z}), $$
+    where $m$ is the electron mass and $e$ is its charge. Find the matrix representation of $H$ in the basis $\{ |1\rangle, |2\rangle, |3\rangle, |4\rangle \}$. The parameter $x$ is defined by
+    $$ \frac{e\hbar}{2m} B = -A x. $$
+    Find the eigenvalues of $H$ and graph their behavior as a function of $x$.
+  \end{enumerate}
+  \item The Deutsch-Josza quantum computing algorithm. (LB 6.5.11, with significant modifications)
+  In this problem we work through one of the simplest examples of a parallel quantum algorithm. We are given a binary function $f$ from $\{0,1\}^n$ onto $\{0,1\}$. In other words, $f(x)$ with $x = 0,\ldots,2^n-1$ returns a single binary value dependent on $x$, $f(x) = 0, 1$.
+
+  The Deutsch-Josza algorithm, shown in figure~\ref{fig:deutsch}, allows us to determine whether the function $f(x)$ returns a constant value (0 or 1) for all possible input values of $x$, or whether $f(x)$ is ``balanced'' and has an equal number of 0 outputs and 1 outputs for all possible input values of $x$. For definiteness we assume that we already know that $f(x)$ is one of those two options.
+
+  In particular, if $n = 1$ then $f(x)$ will be constant when $f(0) = f(1)$ and balanced when $f(0) \ne f(1)$.
+
+  With a classical computer, we need to compute all values of $f(x)$ and compare them. With a quantum computer, we can get the answer with certainty in only one operation.
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=0.5\textwidth]{images/Deutsch-Jozsa_Algorithm}
+    \end{center}
+    \caption{By Skippydo - Own work, Public Domain, \url{https://commons.wikimedia.org/w/index.php?curid=2547135}}
+    \label{fig:deutsch}
+  \end{figure}
+  \begin{enumerate}
+    \item Show that applying the Hadamard gate on each of the $n$ qubits in $|0 \ldots 0\rangle$ returns
+    $$ H^{\otimes n}|0 \ldots 0\rangle = \frac{1}{2^{n/2}} \sum_{x=0}^{2^n-1} |x\rangle. $$
+    \item Show that applying the Hadamard gate on each of the $n$ qubits in $|x\rangle$ returns
+    $$ H^{\otimes n}|x\rangle = \frac{1}{2^{n/2}} \sum_{y=0}^{2^n-1} (-1)^{x \cdot y} |y\rangle, $$
+    with $x \cdot y = \sum_{i=0,\ldots,n} x_i y_i$ the sum of the bitwise product.
+    \item The unitary operator $U_f$ acts on an $n$-qubit input register $|\Phi\rangle = |x\rangle = H^{\otimes n}|0 \ldots 0\rangle$ and a 1-qubit output register $|\phi\rangle = |y\rangle= H|1\rangle$. The tensor product of the input and output registers $|\Psi\rangle = |\Phi \otimes \phi\rangle = |x \otimes y\rangle$ transforms as
+    $$ |\Psi'\rangle = |\Phi' \otimes \phi' \rangle = U_f |\Psi\rangle = U_f |x \otimes y\rangle = |x \otimes y \oplus f(x)\rangle, $$
+    with the output register $y \oplus f(x)$ now the sum of $y$ and $f(x)$ modulo 2. Justify for $n = 1$ that you would be able to implement this (\emph{Hint: how are $\oplus$ and cNOT related?}).
+    \item Determine $|\Psi\rangle$ before $U_f$.
+    \item Determine $|\Psi'\rangle$ after $U_f$. In particular, show that
+    $$ |\Psi'\rangle = \frac{1}{2^{n/2}} \sum_{x=0}^{2^n-1} (-1)^{f(x)} |x\rangle \otimes \frac{1}{\sqrt{2}} (|0\rangle - |1\rangle). $$
+    \item Apply another Hadamard gate to the input register and determine $H^{\otimes n} |\Phi'\rangle$. Ignore the output register.
+    \item Show that measuring the qubits of the input register allows us to determine whether $f(x)$ is constant or balanced.
+    \item Take another look at this algorithm. We used the input register to modify the output register based on the behavior of the function $f(x)$. We promptly ignored the output register and proceeded to measure only the input register. Still we obtained information about the behavior of $f(x)$. How does this work?
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
