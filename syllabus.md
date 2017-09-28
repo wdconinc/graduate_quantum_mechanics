@@ -4,7 +4,7 @@
 * Instructor: Wouter Deconinck
 * Phone: 757-221-3539
 * Email: <wdeconinck@wm.edu>
-* Class location: Small Hall 235 (TBC)
+* Class location: Small Hall 122
 * Class hours: MW 11am-12:20pm
 * Office location: Small Hall 343D
 * Office hours: you are welcome to stop by my office any time, or make an appointment at <http://www.doodle.com/wdeconinck>
