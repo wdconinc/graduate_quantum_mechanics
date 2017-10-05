@@ -1,0 +1,78 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 621 (Fall 2017) \\ Homework Assignment 5}
+\date{Due: Wednesday October 11, 2017}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Symmetries}
+
+All of the following questions are Category C assignment questions; you are welcome to work with others but you should submit your own work.
+
+\begin{enumerate}
+  \item We have derived a variety of commutator relations, \textit{e.g.} between $X$ and $P$, between $J$ and $H$. We have not derived the commutator between $J$ and $P$. Consider $|\phi_\mathcal{R}\rangle$ the state obtained after rotation over angle $\theta$ around axis $\hat{n}$ with $U(\mathcal{R})$ expressed using the generators $\vec{J}$. Any vector $\vec{V}$ will transform through an orthogonal matrix $\mathcal{R}$ in $SO(3)$.
+  \begin{enumerate}
+    \item Consider the expectation value of $\vec{V}$ (and in particular the $\hat{y}$ component) for the transformed field $|\phi_\mathcal{R}\rangle$ under an infinitesimal rotation over $\theta$ around $\hat{x}$. Derive the commutator relations between $J_x$ and $V_y$.
+    \item Straightforwardly generalize the previous part to obtain a general expression for the commutator relations between $J_i$ and $P_j$.
+  \end{enumerate}
+  \item The $SU(2)$ group is the group of $2 \times 2$ unitary matrices with unit determinant. (LB 8.5.2)
+  \begin{enumerate}
+    \item Show that if $U$ is an element of $SU(2)$, then $U$ has the form
+    $$ U = \left( \begin{array}{cc} a & b \\ -b^* & a^* \end{array} \right), |a|^2 + |b|^2 = 1.$$
+    \item Show that in the neighborhood of the identity we can write
+    $$ U = 1 - i\tau \quad \hbox{with}~\tau = \tau^+, $$
+    and that $\tau$ is expressed as a function of the Pauli matrices as
+    $$ \tau = \frac{1}{2} \sum_{i=1}^{3} \theta_i \sigma_i, \quad \theta_i \to 0. $$
+    \item Take $\theta = |\vec{\theta}| = \sqrt{\sum_i \theta_i^2}$ and $\theta_i = \theta \hat{n}_i$, where $\hat{n}$ is a unit vector. Assuming that the $\theta_i$ are finite, define $U(\hat{n},\theta)$ as
+    $$ U(\hat{n},\theta) = \lim_{N\to\infty} \left[ U(\hat{n},\frac{\theta}{N}) \right]. $$
+    Show that
+    $$ U(\hat{n},\theta) = \exp \left( -i\theta\vec{\sigma}\cdot\hat{n}/2 \right). $$
+    Conversely, any $SU(2)$ matrix is of this form.
+    \item Let $\vec{V}$ be a vector in 3-dimensional space and $\mathcal{V}$ a Hermitian matrix with zero trace:
+    $$ \mathcal{V} = \left( \begin{array}{cc} V_z & V_x - i V_y \\ V_x + i V_y & -V_z \end{array} \right) = \vec{\sigma} \cdot \vec{V}. $$
+    What is the determinant of $\mathcal{V}$? Let $\mathcal{W}$ be the matrix such that $\mathcal{W} = U \mathcal{V} U^+$, with $U$ an element of $SU(2)$. Show that $\mathcal{W}$ has the form $\vec{\sigma} \cdot \vec{W}$ and that $\vec{W}$ is derived from $\vec{V}$ by a rotation.
+    \item Define $\vec{V}(\theta)$ as
+    $$ \vec{\sigma}\cdot\vec{V}(\theta) = U(\hat{n},\theta) \left[ \vec{\sigma} \cdot \vec{V} \right] U^+(\hat{n},\theta), \quad \vec{V}(\theta = 0) = \vec{V}. $$
+    Show that
+    $$ \frac{d\vec{V}(\theta)}{d\theta} = \hat{n} \times \vec{V}(\theta). $$
+    Show that $\vec{V}(\theta)$ is obtained from $\vec{V}$ by rotation by an angle $\theta$ about $\hat{n}$. This result establishes a correspondence between the matrices $R(\hat{n},\theta)$ of $SO(3)$ and the matrices $U(\hat{n},\theta)$ of $SU(2)$. Is this a one-to-one correspondence or a two-to-one correspondence?
+  \end{enumerate}
+
+  \item The Lie algebra of a continuous group. (LB 8.5.4)
+
+  Let us consider a group $\mathcal{G}$ whose elements $g$ are parametrized by $N$ coordinates $\theta_a, a = 1,\ldots,N$, collectively denoted $\vec{\theta} = \{ \theta_a \}$, where $g(\vec\theta = 0)$ is the neutral element of the group. If $\mathcal{G}$ is a Lie group, the composition law is given by an infinitely differentiable function $f$:
+  $$ g(\vec\theta') g(\vec\theta) = g(\vec{f}(\vec\theta',\vec\theta)). $$
+  The notation $\vec{f}$ is a collective notation for the set of $N$ functions: $\vec{f}(\vec\theta',\vec\theta) = \{ f_a(\vec\theta',\vec\theta) \}$. Given a set of unitary matrices $U(\theta_a)$ with the multiplication law
+  $$ U(\vec\theta') U(\vec\theta) = U(\vec{f}(\vec\theta',\vec\theta)), $$
+  the matrices $U(\vec\theta)$ then form a representation of the group $\mathcal{G}$.
+  \begin{enumerate}
+    \item Show that $f_a(\vec\theta',\vec\theta=0) = \theta'_a$ and that $f_a(\vec\theta'=0,\vec\theta) = \theta_a$. Show that for $\vec\theta',\vec\theta \to 0$, the function $f_a(\vec\theta',\vec\theta)$ has the form
+    $$ f_a(\vec\theta',\vec\theta) = \theta_a + \theta'_a + f_{abc} \theta'_b \theta_c + \mathcal{O}(\theta^3,\theta^2\theta',\theta\theta'^2,\theta'^3), $$
+    where we have used the convention of summation over repeated indices:
+    $$ f_{abc} \theta'_b \theta_c = \sum_{b,c} f_{abc} \theta'_b \theta_c. $$
+    \item In the neighborhood of $U(\vec\theta) = 1$ we expand $U(\vec\theta)$ for $\vec\theta \to 0$:
+    $$ U(\vec\theta) = 1 - i\theta_a T_a - \frac{1}{2} \theta_b \theta_c T_{bc} + \mathcal{O}(\theta^3). $$
+    Compute the product $U(\vec\theta') U(\vec\theta)$ to the order $\theta^2,\theta'^2$ and show that the equation
+    $$ U(\vec\theta') U(\vec\theta) = U(\vec{f}(\vec\theta',\vec\theta)) $$
+    for the terms in $\theta'_a \theta_b$ implies that
+    $$ T_{bc} = T_c T_b - i f_{abc} T_a. $$
+    Using the symmetry of $T_{bc}$, obtain
+    $$ [T_b, T_c] = i C_{abc} T_a $$
+    with $C_{abc} = -C_{acb}$. Express $C_{abc}$ as a function of $f_{abc}$. The preceding commutation relations constitute the Lie algebra of the group defined by the composition law $f(\theta',\theta)$.
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
