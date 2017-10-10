@@ -1,0 +1,62 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+
+%opening
+\title{Physics 621 (Fall 2017) \\ Homework Assignment 6}
+\date{Due: Wednesday October 18, 2017}
+
+\begin{document}
+
+\maketitle
+
+\paragraph*{Symmetries}
+
+All of the following questions are Category C assignment questions; you are welcome to work with others but you should submit your own work.
+
+\begin{enumerate}
+  \item Wave packet spreading. (LB 9.7.2, minor modifications)
+  \begin{enumerate}
+    \item Let $\langle X^2 \rangle(t)$ be the mean square position of the state $|\phi(t)\rangle$. Show that
+    $$ \frac{d}{dt} \langle X^2 \rangle(t) = \frac{1}{m} \langle PX + XP \rangle = \frac{i\hbar}{m} \int_{-\infty}^{+\infty} dx x \left[ \phi \frac{\partial \phi^*}{\partial x} - \phi^* \frac{\partial \phi}{\partial x} \right]. $$
+    \item Show that if the particle is free, $V(x) = 0$, then
+    $$ \frac{d^2}{dt^2} \langle X^2 \rangle(t) = \frac{2}{m^2} \langle P^2 \rangle = 2 v_1^2 = \mbox{const}, $$
+    with $v_1^2 = \langle P^2 \rangle / m^2$.
+    \item Derive
+    $$ \langle X^2 \rangle(t) = \langle X^2 \rangle(t = 0) + \xi_0 t + v_1^2 t^2, \quad \xi_0 = \left. \frac{d}{dx} \langle X^2 \rangle\right|_{t = 0}, $$
+    as well as
+    $$ \left(\Delta x(t)\right)^2 = \left(\Delta x(t = 0)\right)^2 + \left[ \xi_0 - 2 v_0 \langle X \rangle (t = 0) \right] t + (v_1^2 - v_0^2) t^2, $$
+    with $v_0 = \langle P \rangle / m = \mbox{const}$.
+  \end{enumerate}
+  \item Gaussian wave packets. (LB 9.7.3, minor modifications)
+  \begin{enumerate}
+    \item We assume that the wave function $\tilde\phi(k)$ is a Gaussian in momentum representation
+    $$ \tilde\phi(k) = \frac{1}{(\pi \sigma^2)^{1/4}} \exp \left[ -\frac{(k-\bar{k})^2}{2 \sigma^2} \right]. $$
+    Show that this wave function is properly normalized. What is the dispersion $\Delta k(t = 0)$?
+    \item Calculate the position representation $\phi(x,t=0)$,
+    $$ \phi(x,t = 0) = \frac{\sigma}{(\pi \sigma^2)^{1/4}} \exp \left[ i \bar{k} x - \frac{1}{2} \sigma^2 x^2 \right]. $$
+    What is the dispersion $\Delta x(t = 0)$? Show that this satisfies the Heisenberg inequality for $x$ and $k$.
+    \item Calculate $\phi(x,t)$ to first order in the stationary phase approximation and show that
+    $$ \phi(x,t) = \exp\left( \frac{i\hbar\bar{k}^2}{2m} t \right) \phi(x - v_g t, 0), \quad v_g = \frac{\hbar k}{m}.$$
+    For what $t$ is this approximation valid?
+    \item Calculate $\phi(x,t)$ exactly:
+    $$ \phi(x,t) = \frac{\sigma'}{(\pi \sigma^2)^{1/4}} \exp \left[ i \bar{k} x - i \omega(\bar{k}) t - \frac{1}{2} \sigma'^2 (x - v_g t)^2 \right], $$
+    with
+    $$ \frac{1}{\sigma'^2} = \frac{1}{\sigma^2} + \frac{i\hbar t}{m}. $$
+    What is the dispersion $\Delta x(t)$?
+  \end{enumerate}
+  \item The Lennard-Jones potential for atomic interactions. (LB 9.7.5)
+  \begin{enumerate}
+    \item
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
