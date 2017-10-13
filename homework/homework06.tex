@@ -31,7 +31,7 @@ All of the following questions are Category C assignment questions; you are welc
     $$ \frac{d^2}{dt^2} \langle X^2 \rangle(t) = \frac{2}{m^2} \langle P^2 \rangle = 2 v_1^2 = \mbox{const}, $$
     with $v_1^2 = \langle P^2 \rangle / m^2$.
     \item Derive
-    $$ \langle X^2 \rangle(t) = \langle X^2 \rangle(t = 0) + \xi_0 t + v_1^2 t^2, \quad \xi_0 = \left. \frac{d}{dx} \langle X^2 \rangle\right|_{t = 0}, $$
+    $$ \langle X^2 \rangle(t) = \langle X^2 \rangle(t = 0) + \xi_0 t + v_1^2 t^2, \quad \xi_0 = \left. \frac{d}{dt} \langle X^2 \rangle\right|_{t = 0}, $$
     as well as
     $$ \left(\Delta x(t)\right)^2 = \left(\Delta x(t = 0)\right)^2 + \left[ \xi_0 - 2 v_0 \langle X \rangle (t = 0) \right] t + (v_1^2 - v_0^2) t^2, $$
     with $v_0 = \langle P \rangle / m = \mbox{const}$.
@@ -45,7 +45,7 @@ All of the following questions are Category C assignment questions; you are welc
     $$ \phi(x,t = 0) = \frac{\sigma}{(\pi \sigma^2)^{1/4}} \exp \left[ i \bar{k} x - \frac{1}{2} \sigma^2 x^2 \right]. $$
     What is the dispersion $\Delta x(t = 0)$? Show that this satisfies the Heisenberg inequality for $x$ and $k$.
     \item Calculate $\phi(x,t)$ to first order in the stationary phase approximation and show that
-    $$ \phi(x,t) = \exp\left( \frac{i\hbar\bar{k}^2}{2m} t \right) \phi(x - v_g t, 0), \quad v_g = \frac{\hbar k}{m}.$$
+    $$ \phi(x,t) = \exp\left( \frac{i\hbar\bar{k}^2}{2m} t \right) \phi(x - v_g t, 0), \quad v_g = \frac{\hbar \bar{k}}{m}.$$
     For what $t$ is this approximation valid?
     \item Calculate $\phi(x,t)$ exactly:
     $$ \phi(x,t) = \frac{\sigma'}{(\pi \sigma^2)^{1/4}} \exp \left[ i \bar{k} x - i \omega(\bar{k}) t - \frac{1}{2} \sigma'^2 (x - v_g t)^2 \right], $$
@@ -55,7 +55,12 @@ All of the following questions are Category C assignment questions; you are welc
   \end{enumerate}
   \item The Lennard-Jones potential for atomic interactions. (LB 9.7.5)
   \begin{enumerate}
-    \item
+    \item The potential energy of two atoms separated by a distance $r$ is often well represented by the Lennard-Jones potential:
+    $$ V(r) = \epsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - 2 \left( \frac{\sigma}{r} \right)^{6} \right], $$
+    where $\epsilon$ and $\sigma$ are parameters with the dimension of energy and length. Calculate the position $r_0$ of the potential minimum and sketch $V(r)$ qualitatively. Show that near $r = r_0$
+    $$ V(r) \approx - \epsilon \left[ 1 - 36 \left( \frac{r - r_0}{r_0} \right)^2 \right] = \frac{1}{2} m \omega^2 (r - r_0)^2 + V_0. $$
+    \item In the case of helium, $\epsilon \approx 10^{-1}$\,eV and $r_0 \approx 0.3$\,nm. Calculate the vibration frequency $\omega$ and the energy $\hbar \omega/2$ of the ground state. Why does helium remain a liquid even if the temperature $T \to 0$? Does this reasoning hold for the two isotopes $^3$He and $^4$He?
+    \item For hydrogen, $\epsilon \approx 4$\,eV. Why does hydrogen become a solid at low temperatures? What about the noble gases (argon, neon, etc.)?
   \end{enumerate}
 \end{enumerate}
 
